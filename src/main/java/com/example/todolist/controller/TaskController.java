@@ -4,6 +4,7 @@ import com.example.todolist.entity.Task;
 import com.example.todolist.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -27,5 +28,19 @@ public class TaskController {
     @QueryMapping
     public Task task(@Argument int id) {
         return taskRepository.findById(id).orElse(null);
+    }
+
+    @MutationMapping
+    public Task completeTask(@Argument int id, @Argument boolean completed) {
+        Task task = taskRepository.findById(id).orElse(null);
+        if (task == null) return null;
+        task.setCompleted(completed);
+        return taskRepository.save(task);
+    }
+
+    @MutationMapping
+    public Task createTask(@Argument String description, @Argument String author) {
+        Task task = new Task(description, author, false);
+        return taskRepository.save(task);
     }
 }
