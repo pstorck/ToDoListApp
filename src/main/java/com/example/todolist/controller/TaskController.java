@@ -6,12 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:1200")
 public class TaskController {
 
     private final TaskRepository taskRepository;
@@ -22,7 +20,7 @@ public class TaskController {
     }
 
     @QueryMapping
-    public List<Task> tasks() {
+    public List<Task> tasks() throws InterruptedException {
         return (List<Task>) taskRepository.findAll();
     }
 

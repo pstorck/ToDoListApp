@@ -1,0 +1,14 @@
+<p *ngIf="loading">Loading Tasks...</p>
+<p *ngIf="error">Error fetching tasks</p>
+<table *ngIf="!loading && !error">
+  <tr>
+    <th>Description</th>
+    <th>Author</th>
+    <th>Completed</th>
+  </tr>
+  <tr *ngFor="let todo of todos">
+    <td>{{ todo.description }}</td>
+    <td>{{ todo.author }}</td>
+    <td>{{ todo.completed }}</td>
+  </tr>
+</table>
