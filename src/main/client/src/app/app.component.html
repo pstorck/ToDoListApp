@@ -1,10 +1,21 @@
-<html>
-  <body>
-    <div>
-      <mat-toolbar>
-        <strong>To-Do List</strong>
-      </mat-toolbar>
-    </div>
-    <todos/>
-  </body>
-</html>
+<mat-toolbar>
+  <strong>To-Do List</strong>
+</mat-toolbar>
+<mat-card *ngFor="let todo of todos">
+  <mat-card-content>
+    <button mat-icon-button color="warn" (click)="deleteTask(todo.id)">
+      <mat-icon>close</mat-icon>
+    </button>
+    {{ todo.description }}
+    <mat-checkbox (change)="completeTask(todo.id, $event.checked)" [checked]="todo.completed"  color="accent" class="right"></mat-checkbox>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <form (ngSubmit)="addTodo()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="description" name="description">
+    </mat-form-field>
+    <button mat-stroked-button type="submit">Add</button>
+  </form>
+</mat-card>

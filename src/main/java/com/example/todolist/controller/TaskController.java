@@ -39,8 +39,14 @@ public class TaskController {
     }
 
     @MutationMapping
-    public Task createTask(@Argument String description, @Argument String author) {
-        Task task = new Task(description, author, false);
+    public Task createTask(@Argument String description) {
+        Task task = new Task(description, false);
         return taskRepository.save(task);
+    }
+
+    @MutationMapping
+    public int deleteTask(@Argument int id) {
+        taskRepository.deleteById(id);
+        return id;
     }
 }

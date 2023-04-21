@@ -1,7 +1,6 @@
 type Task {
     id: ID!
     description: String!
-    author: String!
     completed: Boolean!
 }
 
@@ -12,5 +11,6 @@ type Query {
 
 type Mutation {
     completeTask(id: ID!, completed: Boolean!): Task
-    createTask(description: String!, author: String!): Task
+    createTask(description: String!): Task
+    deleteTask(id: ID!): ID!
 }

@@ -11,15 +11,13 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     String description;
-    String author;
     boolean completed;
 
     public Task() {
     }
 
-    public Task(String description, String author, boolean completed) {
+    public Task(String description, boolean completed) {
         this.description = description;
-        this.author = author;
         this.completed = completed;
     }
 
@@ -39,14 +37,6 @@ public class Task {
         this.description = description;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public boolean isCompleted() {
         return completed;
     }
@@ -60,7 +50,6 @@ public class Task {
         return "Task{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
-                ", author='" + author + '\'' +
                 ", completed=" + completed +
                 '}';
     }

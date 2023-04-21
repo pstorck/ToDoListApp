@@ -29,11 +29,11 @@ public class ToDoListApplication {
     @Bean
     public CommandLineRunner init(TaskRepository taskRepository) {
         return args -> {
-            taskRepository.save(new Task("Write to-do list app using Spring Boot and GraphQL", "pstorck", true));
-            taskRepository.save(new Task("Become even more epic at programming", "pstorck", false));
-            taskRepository.save(new Task("Call my dad", "schaltas", true));
-            taskRepository.save(new Task("Call my mom", "schaltas", false));
-            taskRepository.save(new Task("Beat Parker at life", "schaltas", false));
+            taskRepository.save(new Task("Write to-do list app using Spring Boot and GraphQL", true));
+            taskRepository.save(new Task("Become even more epic at programming", false));
+            taskRepository.save(new Task("Call my dad",  true));
+            taskRepository.save(new Task("Call my mom", false));
+            taskRepository.save(new Task("Beat Parker at life", false));
             taskRepository.findAll().forEach(System.out::println);
         };
     }
