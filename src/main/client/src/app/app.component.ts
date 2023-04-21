@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from "apollo-angular";
-import { FormBuilder, FormControl } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
   selector: 'app-root',
