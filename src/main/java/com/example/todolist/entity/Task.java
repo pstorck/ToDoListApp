@@ -47,7 +47,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "Todo{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
                 ", completed=" + completed +

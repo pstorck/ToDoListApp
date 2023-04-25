@@ -1,16 +1,16 @@
-type Task {
+type Todo {
     id: ID!
     description: String!
     completed: Boolean!
 }
 
 type Query {
-    tasks: [Task]!
-    task(id: Int): Task
+    tasks: [Todo]!
+    task(id: Int): Todo
 }
 
 type Mutation {
-    toggleComplete(id: ID!): Task
-    createTask(description: String!): Task
+    toggleComplete(id: ID!): Todo
+    createTask(description: String!): Todo
     deleteTask(id: ID!): ID!
 }

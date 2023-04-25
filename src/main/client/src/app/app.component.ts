@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from "apollo-angular";
 import { FormBuilder } from "@angular/forms";
+import { Todo } from "./todo";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { FormBuilder } from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  todos: any = [];
+  todos: Todo[] = [];
   error: any;
   loading = true;
   description= '';
