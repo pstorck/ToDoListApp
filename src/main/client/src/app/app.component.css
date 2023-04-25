@@ -9,13 +9,11 @@ mat-toolbar strong {
 
 mat-card {
   width: 75%;
-  margin: auto;
-  margin-top: 15px;
-  font-size: 24px;
+  margin: 15px auto auto;
+  font-size: 30px;
 }
 
 mat-card-content {
-  vertical-align: center;
   color: #ddd;
 }
 

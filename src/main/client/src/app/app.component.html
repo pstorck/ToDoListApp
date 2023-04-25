@@ -6,8 +6,11 @@
     <button mat-icon-button color="warn" (click)="deleteTask(todo.id)">
       <mat-icon>close</mat-icon>
     </button>
-    {{ todo.description }}
-    <mat-checkbox (change)="completeTask(todo.id, $event.checked)" [checked]="todo.completed"  color="accent" class="right"></mat-checkbox>
+    <span>{{ todo.description }}</span>
+    <button mat-icon-button color="accent" (click)="toggleComplete(todo.id)" class="right">
+      <mat-icon>{{todo.completed ? 'check_box' : 'check_box_outline_blank' }}}</mat-icon>
+    </button>
+<!--    <mat-checkbox (change)="completeTask(todo.id, $event.checked)" [checked]="todo.completed"  color="accent" class="right"></mat-checkbox>-->
   </mat-card-content>
 </mat-card>
 <mat-card>

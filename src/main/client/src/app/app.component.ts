@@ -25,9 +25,9 @@ export class AppComponent implements OnInit {
     }
   `
 
-  COMPLETE_TASK_MUTATION = gql`
-    mutation completeTask($id: ID!, $completed: Boolean!) {
-      completeTask(id: $id, completed: $completed) {
+  TOGGLE_COMPLETE_MUTATION = gql`
+    mutation toggleComplete($id: ID!) {
+      toggleComplete(id: $id) {
           id
           description
           completed
@@ -61,12 +61,11 @@ export class AppComponent implements OnInit {
     });
   }
 
-  completeTask(id: number, checked: boolean): any {
+  toggleComplete(id: number): any {
     this.apollo.mutate({
-      mutation: this.COMPLETE_TASK_MUTATION,
+      mutation: this.TOGGLE_COMPLETE_MUTATION,
       variables: {
         id: id,
-        completed: checked
       }
     }).subscribe();
   }

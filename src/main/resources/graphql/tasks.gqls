@@ -10,7 +10,7 @@ type Query {
 }
 
 type Mutation {
-    completeTask(id: ID!, completed: Boolean!): Task
+    toggleComplete(id: ID!): Task
     createTask(description: String!): Task
     deleteTask(id: ID!): ID!
 }

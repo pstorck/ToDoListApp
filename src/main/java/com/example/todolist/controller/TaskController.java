@@ -31,10 +31,10 @@ public class TaskController {
     }
 
     @MutationMapping
-    public Task completeTask(@Argument int id, @Argument boolean completed) {
+    public Task toggleComplete(@Argument int id) {
         Task task = taskRepository.findById(id).orElse(null);
         if (task == null) return null;
-        task.setCompleted(completed);
+        task.setCompleted(!task.isCompleted());
         return taskRepository.save(task);
     }
 
